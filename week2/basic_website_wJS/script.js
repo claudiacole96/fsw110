@@ -1,5 +1,6 @@
 var nav = document.createElement("nav");
 document.body.appendChild(nav);
+
 var navLink = document.createElement("a");
 var navLink2 = document.createElement("a");
 var navLink3 = document.createElement("a");
