@@ -24,5 +24,7 @@ var names = ["steve", "larry", "joe", "shirley", "steph", "nate", "rick", "emily
 
 //6
 for ( i = 0; i < names.length; i++ ) {
-    console.log(names[i]);
+    var newLi = document.createElement("li");
+    newLi.textContent = names[i];
+    document.body.appendChild(newLi);
 }
