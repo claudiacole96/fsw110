@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Submit Events Project</title>
+    </head>
+    <body>
+        <main style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h1>Where do you want to go?</h1>
+            <form id="my-form">
+                <h2>First Name: </h2>
+                <input type="text" name="fName"><br>
+                <h2>Last Name: </h2>
+                <input type="text" name="lName"><br>
+                <h2>Age: </h2>
+                <input type="number" name="age"><br>
+                <h2>Gender: </h2>
+                <input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Other">Other<br>
+                <h2>Where are you traveling: </h2>
+                <input type="radio" name="destination" value="Hawaii">Hawaii 
+                <input type="radio" name="destination" value="Jamaica">Jamaica 
+                <input type="radio" name="destination" value="Bahamas">Bahamas <br>
+                <h2>Dietary Restrictions?(Select all that apply): </h2>
+                <input type="checkbox" name="diet" value="Vegetarian">Vegetarian 
+                <input type="checkbox" name="diet" value="Lactose-Free">Lactose Free 
+                <input type="checkbox" name="diet" value="Diabetic-Low-Carb">Diabetic Low Carb <br>
+                <button id="submit" style="margin-top: 10px; margin-left: 250px;">SUBMIT</button>
+            </form>
+        </main>
+        <script src="./script.js"></script>
+    </body>
+</html>
