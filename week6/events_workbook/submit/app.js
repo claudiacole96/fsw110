@@ -2,13 +2,6 @@
 // use "e.preventDefault()" in the first line of your callback function to prevent this
 // remember to pass "e" into the callback function
 
-const button = document.querySelector("button");
+const form = document.getElementById("submit-me");
 
-function submitButton(e) {
-    let name = document.getElementById("name");
-    let age = document.getElementById("age");
-    e.preventDefault();
-    alert(`Name: ${name}Age: ${age}`);
-}
-
-button.addEventListener("submit", submitButton);
+form.addEventListener("submit", (e) => e.preventDefault());
