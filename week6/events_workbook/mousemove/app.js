@@ -10,6 +10,6 @@ const mouseCoordinates = (event) => {
     h2.innerHTML = `( ${x} , ${y} )`;
 }
 
-box.addEventListener("mouseover", mouseCoordinates);
+box.addEventListener("mousemove", mouseCoordinates);
 
 box.addEventListener("mouseout", () => h2.innerHTML = "");
