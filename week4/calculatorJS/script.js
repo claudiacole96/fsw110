@@ -5,7 +5,7 @@
 //  Your website will have 3 colors
 //  Your website will have proper padding/spacing to lay things out nicely.
 
-var divs = document.querySelectorAll("div");
+var divs = document.getElementsByClassName("inputs");
 for (i = 0; i < divs.length; i++) {
     divs[i].style.padding = "10px";
     divs[i].style.paddingBottom = "15px";
@@ -32,46 +32,28 @@ for (i = 0; i < buttons.length; i++) {
     buttons[i].style.padding = "5px";
 }
 
+var resultBox = document.getElementById("result");
+var result = document.createElement("h3");
+result.style.textAlign = "center";
+resultBox.appendChild(result);
+
 var addButton = document.getElementById("add");
-addButton.addEventListener("click", addNumbers);
-
-var addResult = document.createElement("span");
-addResult.style.color = "white";
-addResult.style.marginLeft = "15px";
-divs[0].appendChild(addResult);
-
-function addNumbers(a, b) {
+addButton.addEventListener("click", () => {
     a = parseInt(document.getElementById("num1Add").value);
     b = parseInt(document.getElementById("num2Add").value);
-    addResult.innerHTML = a + b;
-}
-
+    result.innerHTML = a + b;
+});
 
 var subButton = document.getElementById("subtract");
-subButton.addEventListener("click", subNumbers);
-
-var subResult = document.createElement("span");
-subResult.style.color = "white";
-subResult.style.marginLeft = "15px";
-divs[1].appendChild(subResult);
-
-function subNumbers(a, b) {
+subButton.addEventListener("click", () => {
     a = parseInt(document.getElementById("num1Subtract").value);
     b = parseInt(document.getElementById("num2Subtract").value);
-    subResult.innerHTML = a - b;
-}
-
+    result.innerHTML = a - b;
+});
 
 var multButton = document.getElementById("multiply");
-multButton.addEventListener("click", multNumbers);
-
-var multResult = document.createElement("span");
-multResult.style.color = "white";
-multResult.style.marginLeft = "15px";
-divs[2].appendChild(multResult);
-
-function multNumbers(a, b) {
+multButton.addEventListener("click", () => {
     a = parseInt(document.getElementById("num1Multiply").value);
     b = parseInt(document.getElementById("num2Multiply").value);
-    multResult.innerHTML = a * b;
-}
+    result.innerHTML = a * b;
+});
