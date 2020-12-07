@@ -1,36 +1,53 @@
-const form = document.getElementById("mad-lib-entry");
-form.addEventListener("submit", submitInput);
+const form = document.getElementById("to-do-form");
+const formButton = document.getElementById("submit-button");
+const todoDiv = document.getElementById("output-box");
 
-const inputValues = document.getElementsByTagName("input");
-const madLibInputs = document.getElementsByTagName("span");
-
-function submitInput(e) {
+formButton.addEventListener("click", e => {
     e.preventDefault();
-    for (i = 0; i < madLibInputs.length; i++) {
-        madLibInputs[i].innerHTML = inputValues[i].value.toUpperCase(); 
-    }
+    let todo = document.getElementById("title").value;
+    let description = document.getElementById("description").value;
+    let todoBox = document.createElement("div");
+    let titleBox = document.createElement("div");
+        titleBox.classList.add("to-do-box");
+        let todoItem = document.createElement("span");
+            todoItem.classList.add("to-do-title");
+        let plusIcon = document.createElement("i");
+            plusIcon.classList.add("fas")
+            plusIcon.classList.add("fa-plus")
+            plusIcon.classList.add("open-context");
+        let deleteIcon = document.createElement("i");
+            deleteIcon.classList.add("fas")
+            deleteIcon.classList.add("fa-trash")
+            deleteIcon.classList.add("delete-to-do");
+    let contextBox = document.createElement("div");
+        contextBox.classList.add("context-box");
+        let todoContext = document.createElement("p");
+            todoContext.classList.add("to-do-context")
+    todoDiv.appendChild(todoBox);
+        todoBox.appendChild(titleBox);
+            titleBox.appendChild(todoItem);
+            titleBox.appendChild(plusIcon);
+            titleBox.appendChild(deleteIcon);
+        todoBox.appendChild(contextBox);
+            contextBox.appendChild(todoContext);
+    todoItem.innerHTML = todo;
+    todoContext.innerHTML = description;
+    todoItem.addEventListener("click", () => {
+        if (todoItem.style.textDecoration == "line-through") {
+            todoItem.style.textDecoration = "none";
+        } else {
+            todoItem.style.textDecoration = "line-through";
+        }
+    })
+    plusIcon.addEventListener("click", () => {
+        if (contextBox.style.display == "none") {
+            contextBox.style.display = "flex";
+            plusIcon.style.color = "lightgray";
+        } else {
+            contextBox.style.display = "none";
+            plusIcon.style.color = "white";
+        } 
+    })
+    deleteIcon.addEventListener("click", () => todoBox.remove());
     form.reset();
-}
-
-//onclick of trash icon deletes the madlibinput assosiated with it
-/*
-const delButtons = document.getElementsByTagName("i");
-for (i = 0; i < delButtons.length; i++) {
-    return delButtons[i].addEventListener("click", () => {
-        return madLibInputs[i].innerHTML = "";
-    });
-}
-console.log(delButtons); */
-
-//this event listener and arrow function makes the madlib and button appear
-const submitButton = document.getElementById("submit-button");
-const madLib = document.getElementById("mad-lib");
-submitButton.addEventListener("click", () => { 
-    madLib.style.display = "block";
-    playAgain.style.display = "block";
 });
-
-//When you play again it refreshes the page causeing the madlib to dissappear
-//and the input boxes to refresh to empty so you can play the madlib again
-const playAgain = document.getElementById("play-again");
-playAgain.addEventListener("click", () => window.location.reload());
