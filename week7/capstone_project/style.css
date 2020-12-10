@@ -50,7 +50,7 @@ button {
     color: white;
 }
 .context-box {
-    display: none;
+    display: flex;
     align-items: center;
     background-color: black;
     height: 50px;
